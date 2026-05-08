@@ -2,7 +2,7 @@ export const LOCATION_ITEMS = [
   {
     id: "andheri",
     title: "DBSW Workspace, Andheri",
-    image: "https://www.figma.com/api/mcp/asset/fad0bf82-172c-4732-80fd-fc91c7a45e6d",
+    image: "/images/location/map_listing/listing_mapstate.webp",
     address: "Kanakia Wall street, Chakala, Andheri Kurla Road, Andheri East, Mumbai, Maharashtra 400093",
     phone: "02240779100",
     city: "mumbai",
@@ -12,7 +12,7 @@ export const LOCATION_ITEMS = [
   {
     id: "fort",
     title: "DBSW House, Fort",
-    image: "https://www.figma.com/api/mcp/asset/e2361f64-ebf6-4e20-aab2-26501c65c871",
+    image: "/images/location/map_listing/listing_mapstate.webp",
     address: "DBSW House, Prescott Road,",
     phone: "02240779100",
     city: "mumbai",
@@ -22,7 +22,7 @@ export const LOCATION_ITEMS = [
   {
     id: "one-world-center",
     title: "DBSW Workspace, One world Center",
-    image: "https://www.figma.com/api/mcp/asset/7af48d64-9fb4-4041-95b1-43702978bc64",
+    image: "/images/location/map_listing/listing_mapstate.webp",
     address: "9th Floor Tower 1, One World Center Senapati Bapat Marg, Lower Parel, Mumbai 400013",
     phone: "02240779100",
     city: "mumbai",
@@ -32,7 +32,7 @@ export const LOCATION_ITEMS = [
   {
     id: "nariman-point",
     title: "DBSW Workspace, Nariman Point",
-    image: "https://www.figma.com/api/mcp/asset/02305de8-2d6a-48f3-b756-d4c39852446f",
+    image: "/images/location/map_listing/listing_mapstate.webp",
     address: "Raheja Chambers, 2nd Floor, Nariman Point, Mumbai 400021",
     phone: "02240779100",
     city: "mumbai",
@@ -42,7 +42,7 @@ export const LOCATION_ITEMS = [
   {
     id: "donear-one-twelve",
     title: "Align by DBSW, Donear one Twelve",
-    image: "https://www.figma.com/api/mcp/asset/bfe11fe6-5ee5-45f9-8cb3-88b7487d1563",
+    image: "/images/location/map_listing/listing_mapstate.webp",
     address: "Donear One Twelve, Road no 13, MIDC Industrial Estate, Andheri East",
     phone: "02240779100",
     city: "mumbai",
@@ -52,7 +52,7 @@ export const LOCATION_ITEMS = [
   {
     id: "peninsula-business-park",
     title: "Align by DBSW, Peninsula Business park",
-    image: "https://www.figma.com/api/mcp/asset/2f485e1f-024c-4774-8402-ef4f87132e60",
+    image: "/images/location/map_listing/listing_mapstate.webp",
     address: "Peninsula Business Park, Lower Parel, Mumbai 400013",
     phone: "02240779100",
     city: "mumbai",

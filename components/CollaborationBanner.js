@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 /** Figma 1379:3405 — updated asset from design file */
-const bannerImage ="/testimonial_banner.webp";
+const bannerImage = "/images/testimonial_banner.webp";
 
 const slides = [
   {

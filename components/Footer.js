@@ -2,7 +2,7 @@
 
 import { Fragment, useState } from "react";
 
-const logoImage = "/logo.svg";
+const logoImage = "/images/logo.svg";
 
 const solutionsLinks = [
   { label: "Complete Office", href: "#" },

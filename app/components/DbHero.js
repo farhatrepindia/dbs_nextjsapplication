@@ -23,10 +23,8 @@ function IconArrowUpRight(props) {
   );
 }
 
-const activePlanImage =
-  "https://www.figma.com/api/mcp/asset/11ed4b3a-d3df-4b71-a89a-87c95253a5e0";
-const officeIconImage =
-  "https://www.figma.com/api/mcp/asset/618f1c12-b466-4cbb-b164-c295a8df1e74";
+const activePlanImage = "/images/tab_image/tab_banner.webp";
+const officeIconImage = "/images/ic-arrow-top-right.svg";
 
 export default function DbHero() {
   return (

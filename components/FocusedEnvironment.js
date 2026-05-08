@@ -6,25 +6,25 @@ const focusedItems = [
   {
     id: "quiet",
     title: "Quiet, Focused Environment",
-    image: "https://www.figma.com/api/mcp/asset/b8a49ce4-b0c7-4601-a1a9-2575aa6aa25b",
+    image: "/images/focus_1.webp",
     caption: "Fewer distractions mean more gets done.",
   },
   {
     id: "flexible",
     title: "Flexible Setups, Easy To Scale",
-    image: "https://www.figma.com/api/mcp/asset/769f0d98-f9c6-40b7-b628-5fdab749897f",
+    image: "/images/focus_1.webp",
     caption: "Agile office configurations built to grow at your pace.",
   },
   {
     id: "connected",
     title: "Helps Teams Stay Connected",
-    image: "https://www.figma.com/api/mcp/asset/3eb33b60-dff0-4258-9d1a-16eb20c54ea0",
+    image: "/images/focus_1.webp",
     caption: "Fluid environments engineered to foster natural collaboration.",
   },
   {
     id: "support",
     title: "Real-Time Support, When You Need It",
-    image: "https://www.figma.com/api/mcp/asset/f9d3e898-1f19-45d9-8165-ff822619eecb",
+    image: "/images/focus_1.webp",
     caption: "Fewer distractions mean more gets done.",
   },
 ];

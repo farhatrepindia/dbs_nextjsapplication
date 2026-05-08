@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" fill="none">
+  <rect width="900" height="620" rx="24" fill="#EEEEEE"/>
+  <g opacity="0.55">
+    <path d="M70 120h760" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+    <path d="M70 160h700" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+    <path d="M70 200h740" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+    <path d="M70 240h680" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+    <path d="M70 280h720" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+    <path d="M70 320h650" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+    <path d="M70 360h710" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+    <path d="M70 400h690" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <circle cx="430" cy="490" r="16" fill="#9DB6F6"/>
+  <text x="470" y="498" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="28" font-weight="700" fill="#1C2E62">Bengaluru (placeholder)</text>
+</svg>

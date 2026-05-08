@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const patternImage = "/location_pattern.svg";
+const patternImage = "/images/location_pattern.svg";
 
 function ChevronRight({ className }) {
   return (

@@ -18,7 +18,7 @@ const plans = [
     title: "Complete Office",
     description:
       "Smart, fully equipped offices with professional support built in. Designed for start-ups, SMEs, freelancers and small firms.",
-    image: "https://www.figma.com/api/mcp/asset/11a50519-4994-494d-82db-74965843cc1f",
+    image: "images/tab_image/tab_banner.webp",
   },
   {
     id: "customise-office",
@@ -26,7 +26,7 @@ const plans = [
     title: "Customise Office",
     description:
       "Flexible managed workspaces tailored to your brand, team size, and future growth plans with plug-and-play readiness.",
-    image: "https://www.figma.com/api/mcp/asset/11a50519-4994-494d-82db-74965843cc1f",
+    image: "images/tab_image/tab_banner.webp",
   },
   {
     id: "shared-office",
@@ -34,7 +34,7 @@ const plans = [
     title: "Shared Office",
     description:
       "A collaborative office setup that balances privacy and connection, built for agile teams and fast-moving projects.",
-    image: "https://www.figma.com/api/mcp/asset/11a50519-4994-494d-82db-74965843cc1f",
+    image: "images/tab_image/tab_banner.webp",
   },
   {
     id: "virtual-office",
@@ -42,11 +42,11 @@ const plans = [
     title: "Virtual Office",
     description:
       "Premium business address, call handling, and operational support to help your team scale with confidence from anywhere.",
-    image: "https://www.figma.com/api/mcp/asset/11a50519-4994-494d-82db-74965843cc1f",
+    image: "images/tab_image/tab_banner.webp",
   },
 ];
 
-const officeIcon = "/ic-arrow-top-right.svg";
+const officeIcon = "/images/ic-arrow-top-right.svg";
 
 export default function PlansSetUps() {
   const [activePlan, setActivePlan] = useState(plans[0].id);

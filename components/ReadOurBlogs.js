@@ -1,6 +1,6 @@
 const blogs = [
   {
-    image: "https://www.figma.com/api/mcp/asset/08521e33-3beb-4efa-beef-aadfe1658293",
+    image: "/images/blogs/listing_blog.webp",
     title: "7 Compelling Reasons Startups in Metro Cities Are Choosing DBS Workspace Offices",
     excerpt:
       "Office decisions shape how a business grows, spends and adapts. In Hyderabad, companies today usually weigh two clear options",
@@ -8,7 +8,7 @@ const blogs = [
     date: "Date: 15 june",
   },
   {
-    image: "https://www.figma.com/api/mcp/asset/403a7a28-b152-41d9-972a-2c214bc8cfff",
+    image: "/images/blogs/listing_blog.webp",
     title: "How DBS Workspace Offices Enhance Productivity for Remote Teams",
     excerpt:
       "With flexible layouts and seamless connectivity, DBS offices support thriving remote collaborations in urban hubs",
@@ -16,7 +16,7 @@ const blogs = [
     date: "Date: 12 june",
   },
   {
-    image: "https://www.figma.com/api/mcp/asset/30c3e1fc-c23d-4e1b-8626-5c6323f9004b",
+    image: "/images/blogs/listing_blog.webp",
     title: "Sustainability and Style: The Eco-friendly Design of DBS Workspace Offices",
     excerpt:
       "Discover how DBS integrates green architecture with modern aesthetics to create inspiring work environments",

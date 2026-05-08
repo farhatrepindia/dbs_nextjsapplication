@@ -16,9 +16,9 @@ export const metadata = {
   title: "Align by DBS Workspace",
   description: "Workspace solutions by DBS",
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/images/logo.svg",
+    shortcut: "/images/logo.svg",
+    apple: "/images/logo.svg",
   },
 };
 

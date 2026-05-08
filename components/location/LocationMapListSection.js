@@ -3,8 +3,7 @@
 import { useMemo, useState } from "react";
 import { LOCATION_ITEMS } from "./locationData";
 
-const mapImageLayerA = "https://www.figma.com/api/mcp/asset/d897d6b4-05f5-4a5e-9192-f3c0f50eecb7";
-const mapImageLayerB = "https://www.figma.com/api/mcp/asset/1cb938a7-91a2-4fb7-8e8f-2835013187db";
+const mapImage = "/images/location/mumbai-map.svg";
 
 const FILTERS = [{ id: "all", label: "All", predicate: () => true }];
 
@@ -153,8 +152,7 @@ export default function LocationMapListSection({ city = "mumbai" }) {
           <div className="relative lg:sticky lg:top-24">
             <div className="relative h-[520px] w-full overflow-hidden bg-[#eee] lg:h-[838px] lg:w-[558px]">
               <div className="absolute left-[-41px] top-0 h-full w-[calc(100%+208px)]">
-                <img src={mapImageLayerA} alt="" className="absolute left-[1px] top-[106.5px] h-[731px] w-[764px] max-w-none object-cover" aria-hidden />
-                <img src={mapImageLayerB} alt="" className="absolute left-0 top-0 h-[725px] w-[766px] max-w-none object-cover" aria-hidden />
+                <img src={mapImage} alt="" className="absolute left-0 top-0 h-[725px] w-[766px] max-w-none object-cover" aria-hidden />
               </div>
 
               <div className="absolute inset-0 transition-opacity duration-200">

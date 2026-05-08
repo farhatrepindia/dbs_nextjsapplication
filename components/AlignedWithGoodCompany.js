@@ -1,14 +1,14 @@
 const logos = [
-  "/logos/logo_1.svg",
-  "/logos/logo_2.svg",
-  "/logos/logo_3.svg",
-  "/logos/logo_4.svg",
-  "/logos/logo_5.svg",
-  "/logos/logo_6.svg",
-  "/logos/logo_3.svg",
-  "/logos/logo_2.svg",
-  "/logos/logo_5.svg",
-  "/logos/logo_1.svg",
+  "/images/logos/logo_1.svg",
+  "/images/logos/logo_2.svg",
+  "/images/logos/logo_3.svg",
+  "/images/logos/logo_4.svg",
+  "/images/logos/logo_5.svg",
+  "/images/logos/logo_6.svg",
+  "/images/logos/logo_3.svg",
+  "/images/logos/logo_2.svg",
+  "/images/logos/logo_5.svg",
+  "/images/logos/logo_1.svg",
 ];
 
 /** lg:grid-cols-6 → place last four in cols 2–5 so the row looks centered */

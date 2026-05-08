@@ -9,15 +9,15 @@ import "swiper/css/pagination";
 
 const heroSlides = [
   {
-    src: "/homebanner.webp",
+    src: "/images/homebanner.webp",
     alt: "Modern workspace lounge",
   },
   {
-    src: "/testimonial_banner.webp",
+    src: "/images/testimonial_banner.webp",
     alt: "Focused office environment",
   },
   {
-    src: "/homebanner.webp",
+    src: "/images/homebanner.webp",
     alt: "Premium workspace amenities",
   },
 ];
@@ -65,13 +65,13 @@ export default function HeroBanner() {
           </Swiper>
         </div>
         <div className="flex items-center justify-center py-12 md:py-16 lg:py-0">
-          <div className="mx-auto w-full max-w-[1368px] px-4 md:px-6 lg:pl-11 lg:pr-10">
+          <div className="mx-auto w-full 2xl:max-w-[522px] px-8 2xl:px-0">
             <h1 className="text-[40px] font-semibold leading-[1.2] tracking-[-0.02em] text-[#9db6f6] md:text-5xl lg:text-[60px]">
               Where Work
               <br />
               <span className="leading-[var(--type-heading-snug)]">Finds Its Flow</span>
             </h1>
-            <p className="mt-4 max-w-[520px] text-sm leading-[1.5] text-[#9db6f6]/85 md:text-base lg:pr-20 2xl:pr-28">
+            <p className="mt-4 text-sm leading-[1.5] text-[#9db6f6]/85 md:text-base lg:pr-10 2xl:pr-28">
               Workspaces that support the shift from pressure to progress and everything in between.
             </p>
             <div className="mt-7 max-w-[519px] border-4 border-[#e5e5e5] bg-[#eee] p-2">

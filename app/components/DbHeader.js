@@ -54,7 +54,7 @@ export default function DbHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-3">
           <img
-            src="/logo.svg"
+            src="/images/logo.svg"
             alt="DBS Workspace logo"
             className="h-10 w-10 rounded object-contain"
           />

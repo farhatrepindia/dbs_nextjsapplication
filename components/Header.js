@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 const crownIcon =
-  "/ic-crown.svg";
+  "/images/ic-crown.svg";
 
-const logoDbsMark = "/dbslogo.svg";
-const logoAlignMark = "/align-logo.png";
+const logoDbsMark = "/images/dbslogo.svg";
+const logoAlignMark = "/images/align-logo.png";
 
 const solutionsSubmenu = [
   { label: "Complete Office", href: "#" },
@@ -108,9 +108,46 @@ function NavLabel({ item }) {
 }
 
 function NavMenuLink({ item, onNavigate }) {
+  const href = item.href;
+  const isInternal = typeof href === "string" && href.startsWith("/");
+
+  if (isInternal) {
+    return (
+      <Link
+        href={href}
+        onClick={onNavigate}
+        className="flex shrink-0 items-center gap-2.5 text-sm font-normal leading-[1.5] text-[#1c2e62]"
+      >
+        <NavLabel item={item} />
+      </Link>
+    );
+  }
+
   return (
-    <a href={item.href} onClick={onNavigate} className="flex shrink-0 items-center gap-2.5 text-sm font-normal leading-[1.5] text-[#1c2e62]">
+    <a
+      href={href}
+      onClick={onNavigate}
+      className="flex shrink-0 items-center gap-2.5 text-sm font-normal leading-[1.5] text-[#1c2e62]"
+    >
       <NavLabel item={item} />
+    </a>
+  );
+}
+
+function NavSubmenuLink({ href, children, className }) {
+  const isInternal = typeof href === "string" && href.startsWith("/");
+
+  if (isInternal) {
+    return (
+      <Link href={href} className={className}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={href} className={className}>
+      {children}
     </a>
   );
 }
@@ -141,14 +178,14 @@ function DesktopNavItem({ item }) {
           <ul className="flex flex-col gap-0">
             {submenu.map((row) => (
               <li key={row.label} role="none">
-                <a
+                <NavSubmenuLink
                   href={row.href}
                   role="menuitem"
                   className="flex items-center justify-between gap-2 p-2 text-sm font-normal leading-[1.5] text-[#1c2e62] outline-none transition-colors hover:text-[#1c2e62]/75 focus-visible:text-[#1c2e62]/75"
                 >
                   <span>{row.label}</span>
                   <IconArrowTopRightSmall className="size-[14px] shrink-0 text-[#1c2e62]" />
-                </a>
+                </NavSubmenuLink>
               </li>
             ))}
           </ul>
@@ -184,14 +221,14 @@ function MobileNavBlock({ item, onNavigate }) {
         <ul className="mt-3 flex flex-col gap-0 border-l border-[#d5d5d5] pl-4">
           {submenu.map((row) => (
             <li key={row.label}>
-              <a
+              <NavSubmenuLink
                 href={row.href}
-                onClick={onNavigate}
                 className="flex items-center justify-between gap-4 py-2 text-sm text-[#1c2e62]"
+                onClick={onNavigate}
               >
                 <span>{row.label}</span>
                 <IconArrowTopRightSmall className="size-[14px] shrink-0 text-[#1c2e62]" />
-              </a>
+              </NavSubmenuLink>
             </li>
           ))}
         </ul>

@@ -1,4 +1,4 @@
-const amenitiesBackground = "https://www.figma.com/api/mcp/asset/7ae47de7-e650-42a2-8fe7-a5c20dc1d529";
+const amenitiesBackground = "images/amenities.webp";
 
 const stroke = {
   stroke: "currentColor",
