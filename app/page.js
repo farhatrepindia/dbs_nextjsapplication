@@ -6,6 +6,7 @@ import Amenities from "../components/Amenities";
 import AboutUs from "../components/AboutUs";
 import FocusedEnvironment from "../components/FocusedEnvironment";
 import AlignedWithGoodCompany from "../components/AlignedWithGoodCompany";
+import CollaborationBanner from "../components/CollaborationBanner";
 import ReadOurBlogs from "../components/ReadOurBlogs";
 import ReadyWhenYouAre from "../components/ReadyWhenYouAre";
 import Footer from "../components/Footer";
@@ -22,6 +23,7 @@ export default function Home() {
         <AboutUs />
         <FocusedEnvironment />
         <AlignedWithGoodCompany />
+        <CollaborationBanner />
         <ReadOurBlogs />
         <ReadyWhenYouAre />
       </main>
