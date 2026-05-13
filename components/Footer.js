@@ -115,7 +115,7 @@ export default function Footer() {
       <div className="bg-[#eee]">
         <div className="custom-container flex flex-col gap-8 py-10 md:flex-row md:items-center md:justify-between lg:h-[224px] lg:py-0">
           <div className="max-w-[569px] text-[#1c2e62]">
-            <p className="font-normal leading-[1.2] text-[clamp(36px,8vw,60px)]">Business,</p>
+            <p className="font-normal leading-[1.2] text-[clamp(36px,8vw,60px)]">Businessss,</p>
             <p className="font-semibold leading-[1.2] text-[clamp(36px,8vw,60px)]">Uninterrupted.</p>
           </div>
           <img
