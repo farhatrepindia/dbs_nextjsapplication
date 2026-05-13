@@ -50,7 +50,7 @@ function IconArrowUpRight(props) {
 
 export default function DbHeader() {
   return (
-    <header className="absolute inset-x-0 top-0 z-20">
+    <header className="absolute inset-x-0 top-0 z-20 text_verceltest">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-3">
           <img
