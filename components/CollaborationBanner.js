@@ -6,14 +6,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 
-/** Figma 1379:3405 — updated asset from design file */
 const bannerImage = "/images/testimonial_banner.webp";
+const startupLogo = "/images/logos/testi-logo.svg";
 
 const slides = [
   {
     id: "1",
     quote:
-      "I have been with DBS Hyderabad since 18th June 2025. The services, amenities and location of the DBS business centre Hyderabad, ar second to none while their staff provides the highest level of professionalism.",
+      "I have been with DBSW Hyderabad since 18th June 2025. The services, amenities and location of the DBSW business centre Hyderabad, ar second to none while their staff provides the highest level of professionalism.",
     author: "Sunil Pandey (Director)",
     company: "KWS Research and Development Private Limited",
   },
@@ -33,75 +33,58 @@ const slides = [
   },
 ];
 
-function IconArrowLeft(props) {
+function IconArrowLeft({ className }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={props.className}>
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
       <path d="M19 12H5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-function IconArrowRight(props) {
+function IconArrowRight({ className }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={props.className}>
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
       <path d="M5 12H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-/**
- * Testimonials (Figma 1379:3405 background, 1379:3407 heading, 1379:3412 glass slider).
- */
+/** Testimonials — Figma 1912:10681 (left copy), 1912:10687 (white card slider). */
 export default function CollaborationBanner() {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const slidePrev = () => swiperRef.current?.slidePrev();
-  const slideNext = () => swiperRef.current?.slideNext();
-
-  const goTo = (i) => {
-    const s = swiperRef.current;
-    if (!s) return;
-    if (s.params.loop) {
-      s.slideToLoop(i);
-    } else {
-      s.slideTo(i);
-    }
-  };
-
   return (
-    <section className="relative w-full overflow-hidden  text-white">
+    <section className="relative w-full overflow-hidden text-white">
       <div className="absolute inset-0" aria-hidden>
-        <div className="absolute">
-          <img src={bannerImage} alt="" className="pointer-events-none size-full max-w-none object-cover min-h-[620px]" />
+        <div className="absolute gradient-overlay">
+          <img src={bannerImage} alt="" className="pointer-events-none size-full min-h-[620px] max-w-none object-cover" />
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative z-10">
         <div className="custom-container">
-          <div className="flex min-h-[620px] flex-col gap-10 py-14 lg:flex-row  lg:justify-between lg:gap-[72px] lg:py-[90px]">
+          <div className="flex min-h-[620px] flex-col gap-10 py-14 lg:flex-row lg:justify-between lg:gap-[72px] lg:py-[90px]">
             <div className="flex w-full max-w-[558px] flex-col gap-9 lg:justify-self-start">
               <div className="flex w-full flex-col gap-4">
                 <div className="inline-flex w-fit items-center justify-center rounded-[1000px] border border-white px-3 py-2">
                   <p className="text-xs font-normal leading-[1.5] text-white">Testimonials</p>
                 </div>
-                <div className="leading-[0] text-[0px] text-white">
-                  <h2 className="text-[clamp(34px,4vw,48px)] font-bold leading-[1.2]">
-                    <span className="block">Notes Worth</span>
-                    <span className="block">Circling Back To</span>
-                  </h2>
-                </div>
+                <h2 className="text-[clamp(34px,4vw,48px)] font-bold leading-[1.2] text-white">
+                  <span className="block">Notes Worth</span>
+                  <span className="block">Circling Back To</span>
+                </h2>
               </div>
 
               <p className="text-base font-normal leading-[1.5] text-white">
-                Few words from people who’ve worked here, stayed late here, launched things here.
+                Few words from people who&apos;ve worked here, stayed late here, launched things here.
               </p>
             </div>
 
-            <div className="relative w-full lg:max-w-[674px] flex items-end">
-              <div className="relative overflow-hidden rounded-[14px] bg-black/[0.05] p-8 backdrop-blur-[24px]">
+            <div className="relative flex w-full items-end lg:max-w-[674px]">
+              <div className="relative w-full bg-white p-8 backdrop-blur-[35px]">
                 <Swiper
                   modules={[Keyboard]}
                   keyboard={{ enabled: true, onlyInViewport: true }}
@@ -110,7 +93,7 @@ export default function CollaborationBanner() {
                   speed={550}
                   spaceBetween={48}
                   watchSlidesProgress
-                  className="testimonial-swiper w-full overflow-hidden"
+                  className="testimonial-swiper relative z-0 w-full overflow-hidden"
                   onSwiper={(swiper) => {
                     swiperRef.current = swiper;
                   }}
@@ -118,33 +101,34 @@ export default function CollaborationBanner() {
                 >
                   {slides.map((slide) => (
                     <SwiperSlide key={slide.id} className="!h-auto">
-                      <article className="w-full">
-                        <blockquote className="h-[120px] text-base font-normal leading-[1.5] text-white">
+                      <article className="flex w-full flex-col gap-3">
+                        <blockquote className="min-h-[120px] text-base font-normal leading-[1.5] text-[#424242]">
                           {slide.quote}
                         </blockquote>
-                        <footer className="mt-3 w-full text-sm font-normal leading-[1.5]">
-                          <p className="text-white">{slide.author}</p>
-                          <p className="text-[#bdbdbd]">{slide.company}</p>
+                        <img src={startupLogo} alt="" className="h-8 w-[100px] object-contain object-left" />
+                        <footer className="w-full pr-20 text-sm font-normal leading-[1.5]">
+                          <p className="text-[#424242]">{slide.author}</p>
+                          <p className="text-[#757575]">{slide.company}</p>
                         </footer>
                       </article>
                     </SwiperSlide>
                   ))}
                 </Swiper>
 
-                <div className="pointer-events-auto absolute bottom-8 right-8 z-20 flex items-center justify-center gap-4">
+                <div className="pointer-events-none absolute bottom-8 right-8 z-20 flex items-center gap-4">
                   <button
                     type="button"
-                    className="grid size-6 place-items-center text-white/90 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="pointer-events-auto grid size-6 place-items-center text-[#1c2e62] transition-opacity hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c2e62]"
                     aria-label="Previous testimonial"
-                    onClick={slidePrev}
+                    onClick={() => swiperRef.current?.slidePrev()}
                   >
                     <IconArrowLeft className="size-6" />
                   </button>
                   <button
                     type="button"
-                    className="grid size-6 place-items-center text-white/90 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="pointer-events-auto grid size-6 place-items-center text-[#1c2e62] transition-opacity hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c2e62]"
                     aria-label="Next testimonial"
-                    onClick={slideNext}
+                    onClick={() => swiperRef.current?.slideNext()}
                   >
                     <IconArrowRight className="size-6" />
                   </button>

@@ -66,7 +66,7 @@ export default function ReadOurBlogs({ variant = "default", items: itemsFromProp
   const AuthorIcon = isDetail ? IconUser : IconFeather;
 
   return (
-    <section className="border-t border-[#9db6f6]/30 bg-[#f5f5f7]">
+    <section className="bg-[#eee]">
       <div
         className={
           isDetail

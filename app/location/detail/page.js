@@ -11,23 +11,19 @@ import LocationDetailGettingThere from "../../../components/location-detail/Loca
 import LocationDetailFaqs from "../../../components/location-detail/LocationDetailFaqs";
 import LocationExploreOthers from "../../../components/location-detail/LocationExploreOthers";
 
-import {
-  heroLocation,
-  locationDetail,
-  locationDetailMetadata,
-  getOtherLocationsForDetailPage,
-} from "./locationDetailPageData";
+import { locationDetail, otherLocations } from "../../../components/location/locationDetailData";
 
-export const metadata = locationDetailMetadata;
+export const metadata = {
+  title: `${locationDetail.titleLead}, ${locationDetail.areaLabel} | Align by DBS Workspace`,
+  description: locationDetail.description[0],
+};
 
 export default function LocationDetailPage() {
-  const otherLocations = getOtherLocationsForDetailPage();
-
   return (
     <div className="relative bg-[#f5f5f7]">
       <Header />
       <main>
-        <LocationDetailHero location={heroLocation} />
+        <LocationDetailHero location={locationDetail} />
         <LocationDetailAmenities amenities={locationDetail.amenities} />
         <LocationDetailGettingThere
           items={locationDetail.gettingThere}

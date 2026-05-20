@@ -134,6 +134,14 @@ body {
 .site-header-logo-flip__face--back {
   transform: rotateY(180deg) translateZ(1px);
 }
+.gradient-overlay:before {
+  content: '';
+  width: 100%;
+  background: rgb(0 0 0 / 40%);
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .site-header-logo-flip__inner {

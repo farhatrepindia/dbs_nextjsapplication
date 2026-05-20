@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { LOCATION_DETAILS } from "../location/locationDetailData";
 
 function ArrowUpRight({ className }) {
   return (
@@ -46,39 +45,42 @@ function Phone({ className }) {
 }
 
 function ExploreCard({ item }) {
-  const detail = LOCATION_DETAILS[item.id];
-  const landmarks = detail?.transitLandmarks || [];
-
   return (
-    <article className="flex flex-col gap-3">
-      <Link href="/location/detail" className="aspect-[442.667/295.255] block w-full overflow-hidden bg-[#e0e0e0]">
+    <article className="flex h-full flex-col">
+      <Link href="/location/detail" className="aspect-[442.667/295.255] block w-full shrink-0 overflow-hidden bg-[#e0e0e0]">
         <img src={item.image} alt="" className="size-full max-w-none object-cover transition-opacity hover:opacity-90" />
       </Link>
 
-      <div className="flex flex-1 flex-col gap-[14px] border-l border-r border-[#bdbdbd] px-5 py-2">
-        <Link href="/location/detail" className="flex items-center gap-4 py-2 hover:opacity-80">
-          <h3 className="flex-1 text-[20px] font-semibold leading-normal text-[#1c2e62] uppercase">{item.title}</h3>
-          <span className="flex size-8 items-center justify-center text-[#1c2e62]" aria-hidden="true">
-            <ArrowUpRight className="size-6" />
+      {/* Figma 1834:7824 — Info */}
+      <div className="flex flex-1 flex-col gap-[14px] bg-[#ffffff] p-5">
+        <Link href="/location/detail" className="flex w-full items-center justify-end gap-4 py-2 hover:opacity-80">
+          <h3 className="min-w-0 flex-1 text-xl font-semibold uppercase leading-normal text-[#1c2e62]">{item.title}</h3>
+          <span className="flex size-8 shrink-0 items-center justify-center text-[#1c2e62]" aria-hidden="true">
+            <ArrowUpRight className="size-8" />
           </span>
         </Link>
 
-        <div className="flex items-start gap-2">
-          <MapPin className="mt-[2px] size-4 shrink-0 text-[#616161]" />
-          <p className="text-sm font-normal leading-[1.5] text-[#616161]">{item.address}</p>
+        <div className="flex w-full items-start gap-2">
+          <MapPin className="size-4 shrink-0 text-[#616161]" />
+          <p className="min-w-0 flex-1 text-sm font-normal leading-[1.5] text-[#616161]">{item.address}</p>
         </div>
 
-        <div className="flex items-center gap-2">
-          <Phone className="size-4 shrink-0 text-[#616161]" />
-          <a href={`tel:${item.phone}`} className="text-sm font-normal leading-[1.5] text-[#616161] hover:text-[#1c2e62]">
-            {item.phone}
-          </a>
+        <div className="flex w-full items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Phone className="size-4 shrink-0 text-[#616161]" />
+            <a href={`tel:${item.phone}`} className="text-sm font-normal leading-[1.5] text-[#616161] hover:text-[#1c2e62]">
+              {item.phone}
+            </a>
+          </div>
+          <div className="pointer-events-none opacity-0" aria-hidden="true">
+            <span className="text-sm leading-[1.5] text-[#616161]">Date: 15 june</span>
+          </div>
         </div>
 
-        {landmarks.length > 0 ? (
+        {item.landmarks?.length > 0 ? (
           <ul className="list-disc text-xs font-normal leading-[1.5] text-[#616161]">
-            {landmarks.map((line) => (
-              <li key={line} className="ms-[18px]">
+            {item.landmarks.map((line, index) => (
+              <li key={line} className={`ms-[18px] ${index === 0 ? "mb-0" : ""}`}>
                 {line}
               </li>
             ))}
@@ -91,7 +93,7 @@ function ExploreCard({ item }) {
 
 export default function LocationExploreOthers({ locations }) {
   return (
-    <section className="bg-[#eeeeee] py-14 lg:py-[72px]">
+    <section className="bg-[#eeeeee] pt-14 lg:pt-[72px]">
       <div className="custom-container">
         <h2 className="text-[clamp(28px,4vw,36px)] font-normal leading-[1.2] text-[#212121]">Explore Other Locations</h2>
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">

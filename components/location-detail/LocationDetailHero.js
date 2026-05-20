@@ -106,10 +106,26 @@ function IconUser({ className }) {
 
 function IconArrowUpRight({ className }) {
   return (
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" className={className}>
-      <path d="M9.33301 22.6667L22.6663 9.33334" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M9.33301 9.33334H22.6663V22.6667" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span className={`relative size-8 shrink-0 overflow-hidden ${className || ""}`} aria-hidden="true">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        fill="none"
+        className="absolute left-0 top-0 size-full transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-full group-hover:-translate-y-full"
+      >
+        <path d="M9.33398 22.6666L22.6673 9.33331" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M9.33398 9.33331H22.6673V22.6666" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        fill="none"
+        className="absolute left-0 top-0 size-full -translate-x-full translate-y-full transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0 group-hover:translate-y-0"
+      >
+        <path d="M9.33398 22.6666L22.6673 9.33331" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M9.33398 9.33331H22.6673V22.6666" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
   );
 }
 
@@ -172,56 +188,62 @@ export default function LocationDetailHero({ location }) {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-10 lg:mt-12 lg:grid-cols-[minmax(0,558px)_1fr] lg:gap-[72px]">
-          <div>
-            <div className="relative max-w-[558px]">
-              <h1 className="pr-16 text-[clamp(32px,5vw,48px)] font-semibold leading-[1.2] text-[#1c2e62]">{location.title}</h1>
+        <div className="mt-10 lg:mt-12">
+          <h1 className="w-full text-[clamp(32px,5vw,48px)] font-semibold leading-[1.2] text-[#1c2e62]">
+            {location.titleLead},
+            <br />
+            <span className="inline-flex items-start gap-2">
+              {location.areaLabel}
               {location.isNew ? (
-                <span className="mt-2 inline-block bg-gradient-to-b from-[#ab8b51] to-[#fac35f] bg-clip-text text-sm font-bold uppercase text-transparent">
+                <span className="mt-[0.35em] inline-block bg-gradient-to-b from-[#ab8b51] to-[#fac35f] bg-clip-text text-sm font-bold uppercase text-transparent">
                   New
                 </span>
               ) : null}
+            </span>
+          </h1>
+
+          <div className="mt-8 grid gap-10 lg:mt-10 lg:grid-cols-[minmax(0,558px)_1fr] lg:gap-[72px]">
+            <div>
+              <div className="flex flex-col gap-4">
+                <InfoRow icon={IconMapPin}>{location.address}</InfoRow>
+                <InfoRow icon={IconPhone}>
+                  <a href={`tel:${location.phone}`} className="hover:opacity-75">
+                    {location.phone}
+                  </a>
+                </InfoRow>
+                <InfoRow icon={IconMail}>
+                  <a href={`mailto:${location.email}`} className="hover:opacity-75">
+                    {location.email}
+                  </a>
+                </InfoRow>
+                <InfoRow icon={IconClock}>{location.hours}</InfoRow>
+                <InfoRow icon={IconUser}>{location.capacity}</InfoRow>
+              </div>
+
+              <div className="mt-10">
+                <p className="text-xs font-normal uppercase tracking-[0.72px] text-[#616161]">Transit landmark</p>
+                <ul className="mt-4 list-disc pl-6 text-base leading-[1.5] text-[#1c2e62]">
+                  {location.transitLandmarks.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            <div className="mt-10 flex flex-col gap-4">
-              <InfoRow icon={IconMapPin}>{location.address}</InfoRow>
-              <InfoRow icon={IconPhone}>
-                <a href={`tel:${location.phone}`} className="hover:opacity-75">
-                  {location.phone}
-                </a>
-              </InfoRow>
-              <InfoRow icon={IconMail}>
-                <a href={`mailto:${location.email}`} className="hover:opacity-75">
-                  {location.email}
-                </a>
-              </InfoRow>
-              <InfoRow icon={IconClock}>{location.hours}</InfoRow>
-              <InfoRow icon={IconUser}>{location.capacity}</InfoRow>
+            <div className="flex flex-col gap-6">
+              {location.description.map((paragraph, index) => (
+                <p key={index} className="text-base font-normal leading-[1.5] text-[#616161]">
+                  {paragraph}
+                </p>
+              ))}
+              <a
+                href="#"
+                className="group inline-flex w-fit items-center gap-4 py-2 text-xl font-semibold uppercase leading-normal text-[#1c2e62] transition-colors duration-300 hover:text-[#ab8b51]"
+              >
+                Let&apos;s Get Talking
+                <IconArrowUpRight className="text-current transition-colors duration-300" />
+              </a>
             </div>
-
-            <div className="mt-10">
-              <p className="text-xs font-normal uppercase tracking-[0.72px] text-[#616161]">Transit landmark</p>
-              <ul className="mt-4 list-disc pl-6 text-base leading-[1.5] text-[#1c2e62]">
-                {location.transitLandmarks.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-6 lg:justify-end">
-            {location.description.map((paragraph, index) => (
-              <p key={index} className="text-base font-normal leading-[1.5] text-[#616161]">
-                {paragraph}
-              </p>
-            ))}
-            <a
-              href="#"
-              className="group inline-flex w-fit items-center gap-4 py-2 text-xl font-semibold uppercase leading-normal text-[#1c2e62] transition-opacity hover:opacity-75"
-            >
-              Let&apos;s Get Talking
-              <IconArrowUpRight className="size-8 shrink-0 text-[#1c2e62]" />
-            </a>
           </div>
         </div>
       </div>
