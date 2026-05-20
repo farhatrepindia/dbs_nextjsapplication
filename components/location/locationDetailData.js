@@ -1,12 +1,5 @@
 import { LOCATION_ITEMS } from "./locationData";
-
-const defaultGallery = [
-  "/images/location/map_listing/listing_mapstate.webp",
-  "/images/tab_image/tab_banner.webp",
-  "/images/amenities.webp",
-  "/images/homebanner.webp",
-  "/images/focus_1.webp",
-];
+import { getLocationGallery } from "./locationDetailGalleries";
 
 const defaultDescription = [
   "Set in Mumbai's corporate core, this workspace offers everything a growing business needs, minus the friction. Modern architecture, smart interiors, and flexible floor plans make it ideal for fast-moving teams. You're surrounded by big names, which means your clients get a better first impression.",
@@ -65,49 +58,55 @@ const defaultPlans = [
   {
     title: "Complete Office",
     description: "Smart, fully equipped offices with professional support built in.",
-    image: "/images/tab_image/tab_banner.webp",
+    image: "/images/location/detail_page/detail_gallery1.webp",
   },
   {
     title: "Shared Office",
     description: "Designed for start-ups, SMEs, freelancers and small firms.",
-    image: "/images/tab_image/tab_banner.webp",
+    image: "/images/location/detail_page/detail_gallery1.webp",
   },
   {
     title: "Customise Office",
     description: "Fully managed, branded floors tailored for global enterprises and large domestic firms.",
-    image: "/images/tab_image/tab_banner.webp",
+    image: "/images/location/detail_page/detail_gallery1.webp",
   },
   {
     title: "Virtual Office",
     description: "Fully managed, branded floors tailored for global enterprises and large domestic firms.",
-    image: "/images/tab_image/tab_banner.webp",
+    image: "/images/location/detail_page/detail_gallery1.webp",
   },
+];
+
+/** FAQ body copy (Figma 1834:7788 — two Body 16px paragraphs). */
+const defaultFaqParagraphs = [
+  "Set in Mumbai's corporate core, One World Centre offers everything a growing business needs, minus the friction. Modern architecture, smart interiors, and flexible floor plans make it ideal for fast-moving teams. You're surrounded by big names such as Deloitte and Cipla, which means your clients get a better first impression.",
+  "Support facilities like banks, hospitals, and premium hotels are all close by. Additionally, it has excellent connectivity via rail and road. Here, your location adds to your competitive edge.",
 ];
 
 const defaultFaqs = [
   {
     question: "What makes Align powered by DBS Workspace unique?",
-    answer: defaultDescription.join(" "),
+    paragraphs: defaultFaqParagraphs,
     open: true,
   },
   {
     question: "What makes DBS Workspace different from a regular office?",
-    answer: "",
+    paragraphs: defaultFaqParagraphs,
     open: false,
   },
   {
     question: "What's included in the rent?",
-    answer: "",
+    paragraphs: defaultFaqParagraphs,
     open: false,
   },
   {
     question: "Can I move in immediately?",
-    answer: "",
+    paragraphs: defaultFaqParagraphs,
     open: false,
   },
   {
     question: "Where are DBS Workspace offices located in Andheri?",
-    answer: "",
+    paragraphs: defaultFaqParagraphs,
     open: false,
   },
 ];
@@ -146,7 +145,6 @@ export const LOCATION_DETAILS = Object.fromEntries(
         capacity: "20+ capacity",
         transitLandmarks: ["6 mins from Churchgate Station", "4 mins from CST Station"],
         description: defaultDescription,
-        gallery: defaultGallery,
         photoCount: 11,
         amenities: defaultAmenities,
         gettingThere: defaultGettingThere,
@@ -157,14 +155,24 @@ export const LOCATION_DETAILS = Object.fromEntries(
             : faq
         ),
         mapImage: "/images/location/mumbai-map.svg",
-        mapInset: "/images/location/map_listing/listing_mapstate.webp",
+        mapInset: "/images/location/detail_page/explore-location_1.webp",
       },
     ];
   })
 );
 
+/** Default location for the static detail page (Figma reference: Andheri). Swap this when wiring an API. */
+export const STATIC_DETAIL_LOCATION_ID = "andheri";
+
+export function getStaticLocationDetail() {
+  return LOCATION_DETAILS[STATIC_DETAIL_LOCATION_ID];
+}
+
+/** For future dynamic routing / API — includes hero `gallery` from static gallery data. */
 export function getLocationDetail(slug) {
-  return LOCATION_DETAILS[slug] || null;
+  const base = LOCATION_DETAILS[slug];
+  if (!base) return null;
+  return { ...base, gallery: getLocationGallery(slug) };
 }
 
 export function getOtherLocations(currentId) {

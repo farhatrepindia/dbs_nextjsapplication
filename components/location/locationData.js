@@ -2,7 +2,7 @@ export const LOCATION_ITEMS = [
   {
     id: "andheri",
     title: "DBSW Workspace, Andheri",
-    image: "/images/location/map_listing/listing_mapstate.webp",
+    image: "/images/location/detail_page/explore-location_1.webp",
     address: "Kanakia Wall street, Chakala, Andheri Kurla Road, Andheri East, Mumbai, Maharashtra 400093",
     phone: "02240779100",
     city: "mumbai",
@@ -12,7 +12,7 @@ export const LOCATION_ITEMS = [
   {
     id: "fort",
     title: "DBSW House, Fort",
-    image: "/images/location/map_listing/listing_mapstate.webp",
+    image: "/images/location/detail_page/explore-location_1.webp",
     address: "DBSW House, Prescott Road,",
     phone: "02240779100",
     city: "mumbai",
@@ -22,7 +22,7 @@ export const LOCATION_ITEMS = [
   {
     id: "one-world-center",
     title: "DBSW Workspace, One world Center",
-    image: "/images/location/map_listing/listing_mapstate.webp",
+    image: "/images/location/detail_page/explore-location_1.webp",
     address: "9th Floor Tower 1, One World Center Senapati Bapat Marg, Lower Parel, Mumbai 400013",
     phone: "02240779100",
     city: "mumbai",
@@ -32,7 +32,7 @@ export const LOCATION_ITEMS = [
   {
     id: "nariman-point",
     title: "DBSW Workspace, Nariman Point",
-    image: "/images/location/map_listing/listing_mapstate.webp",
+    image: "/images/location/detail_page/explore-location_1.webp",
     address: "Raheja Chambers, 2nd Floor, Nariman Point, Mumbai 400021",
     phone: "02240779100",
     city: "mumbai",
@@ -42,7 +42,7 @@ export const LOCATION_ITEMS = [
   {
     id: "donear-one-twelve",
     title: "Align by DBSW, Donear one Twelve",
-    image: "/images/location/map_listing/listing_mapstate.webp",
+    image: "/images/location/detail_page/explore-location_1.webp",
     address: "Donear One Twelve, Road no 13, MIDC Industrial Estate, Andheri East",
     phone: "02240779100",
     city: "mumbai",
@@ -52,7 +52,7 @@ export const LOCATION_ITEMS = [
   {
     id: "peninsula-business-park",
     title: "Align by DBSW, Peninsula Business park",
-    image: "/images/location/map_listing/listing_mapstate.webp",
+    image: "/images/location/detail_page/explore-location_1.webp",
     address: "Peninsula Business Park, Lower Parel, Mumbai 400013",
     phone: "02240779100",
     city: "mumbai",

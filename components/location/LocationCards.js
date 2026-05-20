@@ -58,12 +58,12 @@ function NearbyAttractions() {
 function LocationCard({ item }) {
   return (
     <article className="flex flex-col gap-3">
-      <Link href={`/location/${item.id}`} className="aspect-[442.667/295.255] block w-full overflow-hidden bg-[#e0e0e0]">
+      <Link href="/location/detail" className="aspect-[442.667/295.255] block w-full overflow-hidden bg-[#e0e0e0]">
         <img src={item.image} alt="" className="size-full max-w-none object-cover" />
       </Link>
 
       <div className="flex flex-1 flex-col gap-[14px] border-l border-r border-[#bdbdbd] px-5 py-2">
-        <Link href={`/location/${item.id}`} className="flex items-center gap-4 py-2 hover:opacity-80">
+        <Link href="/location/detail" className="flex items-center gap-4 py-2 hover:opacity-80">
           <h3 className="flex-1 text-[20px] font-semibold leading-normal text-[#1c2e62] uppercase">
             {item.title}
           </h3>

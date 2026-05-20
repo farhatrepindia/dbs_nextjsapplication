@@ -1,3 +1,13 @@
+/**
+ * Figma tokens (Plans & Set Ups, node 1793:9362):
+ * - Section: colour/brand/primary-light → #9db6f6
+ * - Solution cards: colour/neutral/white → #ffffff (flat; no gradient / shadow in file)
+ */
+
+/**
+ * @typedef {{ title: string; description: string; image: string }} LocationPlan
+ */
+
 function IconPhone({ className }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
@@ -12,20 +22,27 @@ function IconPhone({ className }) {
   );
 }
 
+/** @param {{ plan: LocationPlan }} props */
 function PlanCard({ plan }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden bg-white">
-      <div className="aspect-[384/288] w-full overflow-hidden">
-        <img src={plan.image} alt="" className="size-full object-cover" />
+    <article className="flex h-full min-h-0 min-w-0 flex-col overflow-hidden bg-[#ffffff]">
+      <div className="aspect-[384/288] w-full shrink-0 overflow-hidden">
+        <img src={plan.image} alt="" className="size-full object-cover object-center" />
       </div>
-      <div className="flex flex-1 flex-col gap-3 p-8">
+      <div className="flex min-h-0 flex-1 flex-col gap-3 p-8">
         <h3 className="text-xl font-semibold leading-[1.5] text-[#1c2e62]">{plan.title}</h3>
-        <p className="flex-1 text-sm font-normal leading-[1.5] text-[#616161]">{plan.description}</p>
-        <div className="flex items-start justify-between gap-4 pt-1">
-          <button type="button" className="py-2 text-base font-normal leading-[1.5] text-[#1c2e62] hover:opacity-75">
+        <p className="min-h-0 flex-1 text-sm font-normal leading-[1.5] text-[#616161]">{plan.description}</p>
+        <div className="flex shrink-0 items-start justify-between gap-4">
+          <button
+            type="button"
+            className="py-2 text-left text-base font-normal leading-[1.5] text-[#1c2e62] transition-opacity hover:opacity-75"
+          >
             Read More
           </button>
-          <button type="button" className="inline-flex items-center gap-4 py-2 text-base font-normal leading-[1.5] text-[#1c2e62] hover:opacity-75">
+          <button
+            type="button"
+            className="inline-flex items-center gap-4 py-2 text-base font-normal leading-[1.5] text-[#1c2e62] transition-opacity hover:opacity-75"
+          >
             <IconPhone className="size-6 shrink-0" />
             Book Now
           </button>
@@ -35,17 +52,20 @@ function PlanCard({ plan }) {
   );
 }
 
+/** @param {{ plans: LocationPlan[] }} props */
 export default function LocationDetailPlans({ plans }) {
   return (
-    <section className="bg-[#9db6f6] py-14 lg:py-[72px]">
+    <section className="bg-[#9db6f6] py-12 sm:py-14 lg:py-[72px]">
       <div className="custom-container">
-        <h2 className="text-[clamp(28px,4vw,36px)] font-normal leading-[1.2] text-[#212121]">
-          Plans Available In This Location
-        </h2>
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {plans.map((plan) => (
-            <PlanCard key={plan.title} plan={plan} />
-          ))}
+        <div className="flex flex-col gap-12">
+          <h2 className="text-[clamp(28px,4vw,36px)] font-normal leading-[1.2] text-[#212121]">
+            Plans Available In This Location
+          </h2>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {plans.map((plan) => (
+              <PlanCard key={plan.title} plan={plan} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
