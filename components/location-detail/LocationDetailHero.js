@@ -1,24 +1,3 @@
-import Link from "next/link";
-
-function ChevronRight({ className }) {
-  return (
-    <svg viewBox="0 0 14 14" fill="none" aria-hidden="true" className={className}>
-      <path d="M5.25 3.5 8.75 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.15" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function IconGrid({ className }) {
-  return (
-    <svg viewBox="0 0 14 14" fill="none" aria-hidden="true" className={className}>
-      <rect x="1.75" y="1.75" width="4.5" height="4.5" rx="0.5" stroke="currentColor" strokeWidth="1.1" />
-      <rect x="7.75" y="1.75" width="4.5" height="4.5" rx="0.5" stroke="currentColor" strokeWidth="1.1" />
-      <rect x="1.75" y="7.75" width="4.5" height="4.5" rx="0.5" stroke="currentColor" strokeWidth="1.1" />
-      <rect x="7.75" y="7.75" width="4.5" height="4.5" rx="0.5" stroke="currentColor" strokeWidth="1.1" />
-    </svg>
-  );
-}
-
 function IconMapPin({ className }) {
   return (
     <svg viewBox="0 0 18 18" fill="none" aria-hidden="true" className={className}>
@@ -139,10 +118,8 @@ function InfoRow({ icon: Icon, children }) {
 }
 
 export default function LocationDetailHero({ location }) {
-  const [mainImage, ...gridImages] = location.gallery;
-
   return (
-    <section className="relative overflow-hidden bg-[#f5f5f7] pb-10 pt-6 lg:pb-16 lg:pt-8">
+    <section className="relative overflow-hidden bg-[#f5f5f7] pb-10 pt-10 lg:pb-16 lg:pt-12">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[900px] opacity-40"
         aria-hidden
@@ -152,98 +129,60 @@ export default function LocationDetailHero({ location }) {
       />
 
       <div className="custom-container relative">
-        <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2.5 text-xs font-semibold leading-[1.5] text-[#1c2e62]">
-          <Link href="/" className="hover:opacity-75">
-            Home
-          </Link>
-          <ChevronRight className="size-[14px] shrink-0" />
-          <Link href="/location" className="hover:opacity-75">
-            {location.cityLabel}
-          </Link>
-          <ChevronRight className="size-[14px] shrink-0" />
-          <span>{location.areaLabel}</span>
-        </nav>
+        <h1 className="w-full text-[clamp(32px,5vw,48px)] font-semibold leading-[1.2] text-[#1c2e62]">
+          {location.titleLead},
+          <br />
+          <span className="inline-flex items-start gap-2">
+            {location.areaLabel}
+            {location.isNew ? (
+              <span className="mt-[0.35em] inline-block bg-gradient-to-b from-[#ab8b51] to-[#fac35f] bg-clip-text text-sm font-bold uppercase text-transparent">
+                New
+              </span>
+            ) : null}
+          </span>
+        </h1>
 
-        <div className="grid gap-2.5 lg:grid-cols-2">
-          <div className="aspect-[679/433] overflow-hidden bg-[#1c2e62] lg:min-h-[433px]">
-            <img src={mainImage} alt="" className="size-full object-cover" />
+        <div className="mt-8 grid gap-10 lg:mt-10 lg:grid-cols-[minmax(0,558px)_1fr] lg:gap-[72px]">
+          <div>
+            <div className="flex flex-col gap-4">
+              <InfoRow icon={IconMapPin}>{location.address}</InfoRow>
+              <InfoRow icon={IconPhone}>
+                <a href={`tel:${location.phone}`} className="hover:opacity-75">
+                  {location.phone}
+                </a>
+              </InfoRow>
+              <InfoRow icon={IconMail}>
+                <a href={`mailto:${location.email}`} className="hover:opacity-75">
+                  {location.email}
+                </a>
+              </InfoRow>
+              <InfoRow icon={IconClock}>{location.hours}</InfoRow>
+              <InfoRow icon={IconUser}>{location.capacity}</InfoRow>
+            </div>
+
+            <div className="mt-10">
+              <p className="text-xs font-normal uppercase tracking-[0.72px] text-[#616161]">Transit landmark</p>
+              <ul className="mt-4 list-disc pl-6 text-base leading-[1.5] text-[#1c2e62]">
+                {location.transitLandmarks.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-2.5">
-            {gridImages.slice(0, 3).map((src, index) => (
-              <div key={src + index} className="aspect-[335/211] overflow-hidden bg-[#1c2e62]">
-                <img src={src} alt="" className="size-full object-cover" />
-              </div>
+          <div className="flex flex-col gap-6">
+            {location.description.map((paragraph, index) => (
+              <p key={index} className="text-base font-normal leading-[1.5] text-[#616161]">
+                {paragraph}
+              </p>
             ))}
-            <div className="relative aspect-[335/212] overflow-hidden bg-[#1c2e62]">
-              <img src={gridImages[3] || mainImage} alt="" className="size-full object-cover" />
-              <button
-                type="button"
-                className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full bg-[#1c2e62] px-3 py-2 text-xs font-normal leading-[1.5] text-white"
-              >
-                <IconGrid className="size-[14px]" />
-                Show All Photos ({location.photoCount})
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-10 lg:mt-12">
-          <h1 className="w-full text-[clamp(32px,5vw,48px)] font-semibold leading-[1.2] text-[#1c2e62]">
-            {location.titleLead},
-            <br />
-            <span className="inline-flex items-start gap-2">
-              {location.areaLabel}
-              {location.isNew ? (
-                <span className="mt-[0.35em] inline-block bg-gradient-to-b from-[#ab8b51] to-[#fac35f] bg-clip-text text-sm font-bold uppercase text-transparent">
-                  New
-                </span>
-              ) : null}
-            </span>
-          </h1>
-
-          <div className="mt-8 grid gap-10 lg:mt-10 lg:grid-cols-[minmax(0,558px)_1fr] lg:gap-[72px]">
-            <div>
-              <div className="flex flex-col gap-4">
-                <InfoRow icon={IconMapPin}>{location.address}</InfoRow>
-                <InfoRow icon={IconPhone}>
-                  <a href={`tel:${location.phone}`} className="hover:opacity-75">
-                    {location.phone}
-                  </a>
-                </InfoRow>
-                <InfoRow icon={IconMail}>
-                  <a href={`mailto:${location.email}`} className="hover:opacity-75">
-                    {location.email}
-                  </a>
-                </InfoRow>
-                <InfoRow icon={IconClock}>{location.hours}</InfoRow>
-                <InfoRow icon={IconUser}>{location.capacity}</InfoRow>
-              </div>
-
-              <div className="mt-10">
-                <p className="text-xs font-normal uppercase tracking-[0.72px] text-[#616161]">Transit landmark</p>
-                <ul className="mt-4 list-disc pl-6 text-base leading-[1.5] text-[#1c2e62]">
-                  {location.transitLandmarks.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-6">
-              {location.description.map((paragraph, index) => (
-                <p key={index} className="text-base font-normal leading-[1.5] text-[#616161]">
-                  {paragraph}
-                </p>
-              ))}
-              <a
-                href="#"
-                className="group inline-flex w-fit items-center gap-4 py-2 text-xl font-semibold uppercase leading-normal text-[#1c2e62] transition-colors duration-300 hover:text-[#ab8b51]"
-              >
-                Let&apos;s Get Talking
-                <IconArrowUpRight className="text-current transition-colors duration-300" />
-              </a>
-            </div>
+            <a
+              href="#"
+              className="group inline-flex w-fit items-center gap-4 py-2 text-xl font-semibold uppercase leading-normal text-[#1c2e62] transition-colors duration-300 hover:text-[#ab8b51]"
+            >
+              Let&apos;s Get Talking
+              <IconArrowUpRight className="text-current transition-colors duration-300" />
+            </a>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import CollaborationBanner from "../../../components/CollaborationBanner";
 import ReadOurBlogs from "../../../components/ReadOurBlogs";
 import ReadyWhenYouAre from "../../../components/ReadyWhenYouAre";
 
+import LocationDetailGallery from "../../../components/location-detail/LocationDetailGallery";
 import LocationDetailHero from "../../../components/location-detail/LocationDetailHero";
 import LocationDetailAmenities from "../../../components/location-detail/LocationDetailAmenities";
 import LocationDetailPlans from "../../../components/location-detail/LocationDetailPlans";
@@ -23,6 +24,7 @@ export default function LocationDetailPage() {
     <div className="relative bg-[#f5f5f7]">
       <Header />
       <main>
+        <LocationDetailGallery location={locationDetail} />
         <LocationDetailHero location={locationDetail} />
         <LocationDetailAmenities amenities={locationDetail.amenities} />
         <LocationDetailGettingThere
